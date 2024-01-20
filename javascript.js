@@ -11,26 +11,29 @@ function getPlayerChoice(){
 }
 function playRound(playerSelection,computerSelection){
     if(playerSelection==="Rock"&&computerSelection==="Scissors"){
-        return "You win";
+        return win;
     }
     else if(playerSelection==="Rock"&&computerSelection==="Paper"){
-        return "You lose";
+        return lose;
     }
     else if(playerSelection==="Scissors"&&computerSelection==="Paper"){
-        return "You win";
+        return win;
     }
     else if(playerSelection==="Scissors"&&computerSelection==="Rock"){
-        return "You lose";
+        return lose;
     }
     else if(playerSelection==="Paper"&&computerSelection==="Scissors"){
-        return "You lose";
+        return lose;
     }
     else if(playerSelection==="Paper"&&computerSelection==="Rock"){
-        return "You win";
+        return win;
     }
     else if(playerSelection===computerSelection){
-        return "It's a tie";
+        return tie;
     }
 }
 const playerSelection=getPlayerChoice();
 const computerSelection=getComputerChoice();
+const win="You win";
+const lose="You lose";
+const tie="You tie";
