@@ -1,3 +1,8 @@
+const win="You win";
+const lose="You lose";
+const tie="You tie";
+let playerScore=0;
+
 function getComputerChoice(){
     let choice=["Rock","Paper","Scissors"];
     let computerChoice=choice[(Math.floor(Math.random()*choice.length))];
@@ -11,29 +16,51 @@ function getPlayerChoice(){
 }
 function playRound(playerSelection,computerSelection){
     if(playerSelection==="Rock"&&computerSelection==="Scissors"){
-        return win;
+        playerScore++;
+        return win + playerScore;
     }
     else if(playerSelection==="Rock"&&computerSelection==="Paper"){
-        return lose;
+        playerScore--;
+        return lose + playerScore;
     }
     else if(playerSelection==="Scissors"&&computerSelection==="Paper"){
-        return win;
+        playerScore++;
+        return win + playerScore;
     }
     else if(playerSelection==="Scissors"&&computerSelection==="Rock"){
-        return lose;
+        playerScore--;
+        return lose + playerScore;
     }
     else if(playerSelection==="Paper"&&computerSelection==="Scissors"){
-        return lose;
+        playerScore--;
+        return lose + playerScore;
     }
     else if(playerSelection==="Paper"&&computerSelection==="Rock"){
-        return win;
+        playerScore++;
+        return win + playerScore++;
     }
     else if(playerSelection===computerSelection){
-        return tie;
+        return tie + playerScore;
     }
 }
-const playerSelection=getPlayerChoice();
-const computerSelection=getComputerChoice();
-const win="You win";
-const lose="You lose";
-const tie="You tie";
+
+function game(){
+    let result;
+    let final;
+    for(let i=0;i<5;i++){
+        result=console.log(playRound(getPlayerChoice(),getComputerChoice()));
+    }
+    console.log(playerScore);
+   if(playerScore>0){
+    console.log("Hurray");
+   }
+   else if(playerScore<0){
+    console.log("Oops");
+   }
+   else{
+    console.log("That was weird");
+   }
+    return result;
+}
+game();
+
