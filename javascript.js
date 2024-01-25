@@ -1,6 +1,6 @@
 const win="You win";
 const lose="You lose";
-const tie="You tie";
+const tie="Replay the round ";
 let playerScore=0;
 
 function getComputerChoice(){
@@ -40,7 +40,7 @@ function playRound(playerSelection,computerSelection){
         return win + playerScore++;
     }
     else if(playerSelection===computerSelection){
-        return tie + playerScore;
+        return tie + playRound(getPlayerChoice(),getComputerChoice());
     }
 }
 
@@ -50,15 +50,12 @@ function game(){
     for(let i=0;i<5;i++){
         result=console.log(playRound(getPlayerChoice(),getComputerChoice()));
     }
-    console.log(playerScore);
+    console.log(`Your final score is ${playerScore}`);
    if(playerScore>0){
     console.log("Hurray");
    }
    else if(playerScore<0){
     console.log("Oops");
-   }
-   else{
-    console.log("That was weird");
    }
     return result;
 }
